@@ -11,6 +11,7 @@ div#header {
 }
 div#content {
 	text-align: center;
+	vertical-align: middle;
 }
 div#footer {
 	clear: both;
