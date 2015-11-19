@@ -7,7 +7,7 @@ body {
 }
 div#header {
 	width: 100%;
-	background: #ffffff;
+	background: #000000;
 }
 div#content {
 	top: 30px;
@@ -37,7 +37,6 @@ div#footer {
 	height: 100%;
 	width: 120px;
 	text-align: center;
-	background: #000000;
 }
 
 .h_tab td:hover, #h_tab td:hover {
