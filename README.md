@@ -1,4 +1,3 @@
-My love, only you!
+# snowsolf 的生活！
 ==================
-
-I love you!
+须知人生的参差百态，乃是幸福的本源。 ——罗素
