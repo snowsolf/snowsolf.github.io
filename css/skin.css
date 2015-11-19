@@ -10,6 +10,7 @@ div#header {
 	background: #000000;
 }
 div#content {
+	top: 30px;
 	text-align: center;
 	vertical-align: middle;
 }
