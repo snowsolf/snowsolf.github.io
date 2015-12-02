@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D barcode</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="keywords" content="二维码, 2D barcode"/>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/qrcode.min.js"></script>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		#text {
+			margin: 20px;
+			width: 50%;
+		}
+
+		#qrcode {
+			width: 200px;
+			height: 200px;
+			margin-top: 15px;
+			margin-left: 15px;
+		}
+	</style>
+</head>
+<body>
+	<p>请输入要生成二维码的字符串：</p><input id="text" type="text" value="www.snowsolf.com"/><br/>
+	<div id="qrcode"></div>
+	<script type="text/javascript">
+		var qrcode = new QRCode(document.getElementById("qrcode"), {
+			width : 200,
+			height : 200,
+			correctLevel : QRCode.CorrectLevel.M
+		});
+
+		function makeCode () {
+			var elText = document.getElementById("text");
+			if (!elText.value) {
+				alert("Input a text");
+				elText.focus();
+				return;
+			}
+
+			qrcode.makeCode(elText.value);
+		}
+
+		makeCode();
+
+		$("#text").on("blur", function () {
+			makeCode();
+		}).on("keydown", function (e) {
+			if (e.keyCode == 13) {
+				makeCode();
+			}
+		});
+	</script>
+</body>
+</html>
