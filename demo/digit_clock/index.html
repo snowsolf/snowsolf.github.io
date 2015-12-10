@@ -43,21 +43,21 @@
 			var second = Math.floor(hours % 10);
 			drawAll(ctx, first, 200, 200);
 			drawAll(ctx, second, 350, 200);
-			drawDot(ctx, 525, 250);
+			drawDot(ctx, 500, 250);
 
 			var minutes = date.getMinutes();
 			first = Math.floor(minutes / 10);
 			second = Math.floor(minutes % 10);
-			drawAll(ctx, first, 600, 200);
-			drawAll(ctx, second, 750, 200);
-			drawDot(ctx, 925, 250);
+			drawAll(ctx, first, 550, 200);
+			drawAll(ctx, second, 700, 200);
+			drawDot(ctx, 850, 250);
 
 			var seconds = date.getSeconds();
 			first = Math.floor(seconds / 10);
 			second = Math.floor(seconds % 10);
-			drawAll(ctx, first, 1000, 200);
-			drawAll(ctx, second, 1150, 200);
-		}, 500);
+			drawAll(ctx, first, 900, 200);
+			drawAll(ctx, second, 1050, 200);
+		}, 1000);
 	};
 
 	function drawDot(ctx, x, y) {
