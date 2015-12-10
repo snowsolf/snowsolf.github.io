@@ -26,21 +26,115 @@
 	var half = 9;
 	var third = 6;
 	var length = 100;
+	var pi = Math.PI;
 	window.onload = function() {
 		var canvas = document.getElementById('canvas');
 		canvas.width = document.body.clientWidth;
-
 		canvas.height = document.body.clientHeight;
 
 		var ctx = canvas.getContext("2d");
-		drawTop(ctx, 200, 200);
-		drawMiddle(ctx, 200, 300);
-		drawBottom(ctx, 200, 400);
-		drawLeft(ctx, 200, 200);
-		drawLeft(ctx, 200, 300);
-		drawRight(ctx, 300, 200);
-		drawRight(ctx, 300, 300);
+
+
+		setInterval(function () {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			var date = new Date();
+			var hours = date.getHours();
+			var first = Math.floor(hours / 10);
+			var second = Math.floor(hours % 10);
+			drawAll(ctx, first, 200, 200);
+			drawAll(ctx, second, 350, 200);
+			drawDot(ctx, 525, 250);
+
+			var minutes = date.getMinutes();
+			first = Math.floor(minutes / 10);
+			second = Math.floor(minutes % 10);
+			drawAll(ctx, first, 600, 200);
+			drawAll(ctx, second, 750, 200);
+			drawDot(ctx, 925, 250);
+
+			var seconds = date.getSeconds();
+			first = Math.floor(seconds / 10);
+			second = Math.floor(seconds % 10);
+			drawAll(ctx, first, 1000, 200);
+			drawAll(ctx, second, 1150, 200);
+		}, 500);
 	};
+
+	function drawDot(ctx, x, y) {
+		ctx.beginPath();
+		ctx.arc(x, y, 10, 0, 2 * pi, true);
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(x, y + 100, 10, 0, 2 * pi, true);
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.stroke();
+	}
+
+	function drawAll(ctx, num, x, y) {
+		if(num == 0) {
+			drawTop(ctx, x, y - 2);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y);
+			drawLeft(ctx, x - 2, y + 101);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 1) {
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 2) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y + 101);
+			drawRight(ctx, x + 102, y);
+		} else if(num == 3) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 4) {
+			drawMiddle(ctx, x, y + 100);
+			drawLeft(ctx, x - 2, y);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 5) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 6) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y);
+			drawLeft(ctx, x - 2, y + 101);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 7) {
+			drawTop(ctx, x, y - 2);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 8) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y);
+			drawLeft(ctx, x - 2, y + 101);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		} else if(num == 9) {
+			drawTop(ctx, x, y - 2);
+			drawMiddle(ctx, x, y + 100);
+			drawBottom(ctx, x, y + 202);
+			drawLeft(ctx, x - 2, y);
+			drawRight(ctx, x + 102, y);
+			drawRight(ctx, x + 102, y + 101);
+		}
+	}
 
 	function drawTop(ctx, x, y) {
 		ctx.beginPath();
@@ -60,11 +154,11 @@
 	function drawMiddle(ctx, x, y) {
 		ctx.beginPath();
 		ctx.moveTo(x, y);
-		ctx.lineTo(x + half, y + half);
-		ctx.lineTo(x + length - half, y + half);
+		ctx.lineTo(x + half + 2, y + half + 2);
+		ctx.lineTo(x + length - half - 2, y + half + 2);
 		ctx.lineTo(x + length, y);
-		ctx.lineTo(x + length - half, y - half);
-		ctx.lineTo(x + half, y - half);
+		ctx.lineTo(x + length - half - 2, y - half - 2);
+		ctx.lineTo(x + half + 2, y - half - 2);
 		ctx.closePath();
 		ctx.fillStyle = "#000000";
 		ctx.fill();
@@ -91,9 +185,9 @@
 		ctx.beginPath();
 		ctx.moveTo(x, y);
 		ctx.lineTo(x - third, y + third);
-		ctx.lineTo(x - third, y + length - third);
-		ctx.lineTo(x, y + length);
-		ctx.lineTo(x + (third * 2), y + length - (third * 2));
+		ctx.lineTo(x - third, y + length - third - 1);
+		ctx.lineTo(x, y + length - 1);
+		ctx.lineTo(x + (third * 2), y + length - (third * 2) - 1);
 		ctx.lineTo(x + (third * 2), y + (third * 2));
 		ctx.closePath();
 		ctx.fillStyle = "#000000";
@@ -106,9 +200,9 @@
 		ctx.beginPath();
 		ctx.moveTo(x, y);
 		ctx.lineTo(x - (third * 2), y + (third * 2));
-		ctx.lineTo(x - (third * 2), y + length - third);
-		ctx.lineTo(x, y + length);
-		ctx.lineTo(x + third, y + length - third);
+		ctx.lineTo(x - (third * 2), y + length - (third * 2) - 1);
+		ctx.lineTo(x, y + length - 1);
+		ctx.lineTo(x + third, y + length - third - 1);
 		ctx.lineTo(x + third, y + third);
 		ctx.closePath();
 		ctx.fillStyle = "#000000";
