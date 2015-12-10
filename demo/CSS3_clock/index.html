@@ -14,11 +14,36 @@
 			padding: 0;
 			overflow: hidden;
 		}
+
+		#3dspace {
+			perspective: 500px;
+			perspective-origin: 50% 50%;
+		}
+
+		#pointer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 5px;
+			height: 100px;
+			background-color: #000000;
+			animation: myfirst 6s linear infinite;
+		}
+
+		@keyframes myfirst
+		{
+			0% {
+				transform-origin: 0 0 0;
+				transform: rotateZ(-360deg);
+			}
+		}
 	</style>
 </head>
 <body>
-	<canvas id="canvas">
-		当前浏览器不支持Canvas，请更换浏览器后再试！
-	</canvas>
+	<div id="3dspace">
+		<div id="pointer">
+
+		</div>
+	</div>
 </body>
 </html>

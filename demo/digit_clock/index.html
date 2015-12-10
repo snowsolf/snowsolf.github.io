@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas clock</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="keywords" content="Canvas Clock, Canvas钟表, Canvas digit Clock, Canvas电子钟"/>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas">
+		当前浏览器不支持Canvas，请更换浏览器后再试！
+	</canvas>
+</body>
+<script type="text/javascript">
+	var x = 200;
+	var y = 200;
+	var half = 9;
+	var third = 6;
+	var length = 100;
+	window.onload = function() {
+		var canvas = document.getElementById('canvas');
+		canvas.width = document.body.clientWidth;
+
+		canvas.height = document.body.clientHeight;
+
+		var ctx = canvas.getContext("2d");
+		drawTop(ctx, 200, 200);
+		drawMiddle(ctx, 200, 300);
+		drawBottom(ctx, 200, 400);
+		drawLeft(ctx, 200, 200);
+		drawLeft(ctx, 200, 300);
+		drawRight(ctx, 300, 200);
+		drawRight(ctx, 300, 300);
+	};
+
+	function drawTop(ctx, x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x + third, y - third);
+		ctx.lineTo(x + length - third, y - third);
+		ctx.lineTo(x + length, y);
+		ctx.lineTo(x + length - (third * 2), y + (third * 2));
+		ctx.lineTo(x + (third * 2), y + (third * 2));
+		ctx.closePath();
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+
+	function drawMiddle(ctx, x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x + half, y + half);
+		ctx.lineTo(x + length - half, y + half);
+		ctx.lineTo(x + length, y);
+		ctx.lineTo(x + length - half, y - half);
+		ctx.lineTo(x + half, y - half);
+		ctx.closePath();
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+
+	function drawBottom(ctx, x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x + third, y + third);
+		ctx.lineTo(x + length - third, y + third);
+		ctx.lineTo(x + length, y);
+		ctx.lineTo(x + length - (third * 2), y - (third * 2));
+		ctx.lineTo(x + (third * 2), y - (third * 2));
+		ctx.closePath();
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+
+	function drawLeft(ctx, x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x - third, y + third);
+		ctx.lineTo(x - third, y + length - third);
+		ctx.lineTo(x, y + length);
+		ctx.lineTo(x + (third * 2), y + length - (third * 2));
+		ctx.lineTo(x + (third * 2), y + (third * 2));
+		ctx.closePath();
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+
+	function drawRight(ctx, x, y) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x - (third * 2), y + (third * 2));
+		ctx.lineTo(x - (third * 2), y + length - third);
+		ctx.lineTo(x, y + length);
+		ctx.lineTo(x + third, y + length - third);
+		ctx.lineTo(x + third, y + third);
+		ctx.closePath();
+		ctx.fillStyle = "#000000";
+		ctx.fill();
+		ctx.strokeStyle = "#000000";
+		ctx.stroke();
+	}
+</script>
+</html>
