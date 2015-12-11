@@ -2,18 +2,200 @@
  * Created by snowsolf(snowsolf@hotmail.com) on 2015/12/10.
  */
 
-/**
- * 默认中心坐标
- */
-var x = 200;
-var y = 200;
+var half = 9;
+var third = 6;
+var length = 100;
+var pi = Math.PI;
 window.onload = function() {
 	var canvas = document.getElementById('canvas');
 	canvas.width = document.body.clientWidth;
 	canvas.height = document.body.clientHeight;
-	x = document.body.clientWidth / 2;
-	y = document.body.clientHeight / 2;
+
+	var w = canvas.width;
+	var h = canvas.height;
+	var minW = Math.floor(w / 100);
+	var minH = Math.floor(h / 100);
+
+	half = minW / 6 * 4;
+	third = minW / 6 * 3;
+	length = minW * 8;
+
 
 	var ctx = canvas.getContext("2d");
 
+	setInterval(function () {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		var date = new Date();
+		var hours = date.getHours();
+		var first = Math.floor(hours / 10);
+		var second = Math.floor(hours % 10);
+		drawAll(ctx, first, minW * 10, minH * 36);
+		drawAll(ctx, second, minW * 23, minH * 36);
+		drawDot(ctx, minW * 35, minH * 45);
+
+		var minutes = date.getMinutes();
+		first = Math.floor(minutes / 10);
+		second = Math.floor(minutes % 10);
+		drawAll(ctx, first, minW * 40, minH * 36);
+		drawAll(ctx, second, minW * 53, minH * 36);
+		drawDot(ctx, minW * 65, minH * 45);
+
+		var seconds = date.getSeconds();
+		first = Math.floor(seconds / 10);
+		second = Math.floor(seconds % 10);
+		drawAll(ctx, first, minW * 70, minH * 36);
+		drawAll(ctx, second, minW * 83, minH * 36);
+	}, 1000);
+};
+
+function drawDot(ctx, x, y) {
+	ctx.beginPath();
+	ctx.arc(x, y, 10, 0, 2 * pi, true);
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.arc(x, y + 100, 10, 0, 2 * pi, true);
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.stroke();
+}
+
+function drawAll(ctx, num, x, y) {
+	if(num == 0) {
+		drawTop(ctx, x, y - 2);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawLeft(ctx, x - 2, y + length + 1);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 1) {
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 2) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y + length + 1);
+		drawRight(ctx, x + length + 2, y);
+	} else if(num == 3) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 4) {
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 5) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 6) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawLeft(ctx, x - 2, y + length + 1);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 7) {
+		drawTop(ctx, x, y - 2);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 8) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawLeft(ctx, x - 2, y + length + 1);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	} else if(num == 9) {
+		drawTop(ctx, x, y - 2);
+		drawMiddle(ctx, x, y + length);
+		drawBottom(ctx, x, y + (length * 2) + 2);
+		drawLeft(ctx, x - 2, y);
+		drawRight(ctx, x + length + 2, y);
+		drawRight(ctx, x + length + 2, y + length + 1);
+	}
+}
+
+function drawTop(ctx, x, y) {
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x + third, y - third);
+	ctx.lineTo(x + length - third, y - third);
+	ctx.lineTo(x + length, y);
+	ctx.lineTo(x + length - (third * 2), y + (third * 2));
+	ctx.lineTo(x + (third * 2), y + (third * 2));
+	ctx.closePath();
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.strokeStyle = "#000000";
+	ctx.stroke();
+}
+
+function drawMiddle(ctx, x, y) {
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x + half + 2, y + half + 2);
+	ctx.lineTo(x + length - half - 2, y + half + 2);
+	ctx.lineTo(x + length, y);
+	ctx.lineTo(x + length - half - 2, y - half - 2);
+	ctx.lineTo(x + half + 2, y - half - 2);
+	ctx.closePath();
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.strokeStyle = "#000000";
+	ctx.stroke();
+}
+
+function drawBottom(ctx, x, y) {
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x + third, y + third);
+	ctx.lineTo(x + length - third, y + third);
+	ctx.lineTo(x + length, y);
+	ctx.lineTo(x + length - (third * 2), y - (third * 2));
+	ctx.lineTo(x + (third * 2), y - (third * 2));
+	ctx.closePath();
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.strokeStyle = "#000000";
+	ctx.stroke();
+}
+
+function drawLeft(ctx, x, y) {
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x - third, y + third);
+	ctx.lineTo(x - third, y + length - third - 1);
+	ctx.lineTo(x, y + length - 1);
+	ctx.lineTo(x + (third * 2), y + length - (third * 2) - 1);
+	ctx.lineTo(x + (third * 2), y + (third * 2));
+	ctx.closePath();
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.strokeStyle = "#000000";
+	ctx.stroke();
+}
+
+function drawRight(ctx, x, y) {
+	ctx.beginPath();
+	ctx.moveTo(x, y);
+	ctx.lineTo(x - (third * 2), y + (third * 2));
+	ctx.lineTo(x - (third * 2), y + length - (third * 2) - 1);
+	ctx.lineTo(x, y + length - 1);
+	ctx.lineTo(x + third, y + length - third - 1);
+	ctx.lineTo(x + third, y + third);
+	ctx.closePath();
+	ctx.fillStyle = "#000000";
+	ctx.fill();
+	ctx.strokeStyle = "#000000";
+	ctx.stroke();
 }
