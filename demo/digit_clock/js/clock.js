@@ -43,7 +43,7 @@ window.onload = function() {
 		second = Math.floor(seconds % 10);
 		drawAll(ctx, first, minW * 70, minW * 16);
 		drawAll(ctx, second, minW * 83, minW * 16);
-	}, 1000);
+	}, 50);
 };
 
 function drawDot(ctx, x, y) {
@@ -84,7 +84,6 @@ function drawAll(ctx, num, x, y) {
 		drawRight(ctx, x + length + 2, y + length + 1);
 	} else if(num == 4) {
 		drawMiddle(ctx, x, y + length);
-		drawBottom(ctx, x, y + (length * 2) + 2);
 		drawLeft(ctx, x - 2, y);
 		drawRight(ctx, x + length + 2, y);
 		drawRight(ctx, x + length + 2, y + length + 1);
