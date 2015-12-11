@@ -6,6 +6,7 @@ var half = 9;
 var third = 6;
 var length = 100;
 var pi = Math.PI;
+var r = 10;
 window.onload = function() {
 	var canvas = document.getElementById('canvas');
 	canvas.width = document.body.clientWidth;
@@ -19,7 +20,7 @@ window.onload = function() {
 	half = minW / 6 * 4;
 	third = minW / 6 * 3;
 	length = minW * 8;
-
+	r = minW / 6 * 5;
 
 	var ctx = canvas.getContext("2d");
 
@@ -50,12 +51,12 @@ window.onload = function() {
 
 function drawDot(ctx, x, y) {
 	ctx.beginPath();
-	ctx.arc(x, y, 10, 0, 2 * pi, true);
+	ctx.arc(x, y, r, 0, 2 * pi, true);
 	ctx.fillStyle = "#000000";
 	ctx.fill();
 	ctx.stroke();
 	ctx.beginPath();
-	ctx.arc(x, y + 100, 10, 0, 2 * pi, true);
+	ctx.arc(x, y + length, r, 0, 2 * pi, true);
 	ctx.fillStyle = "#000000";
 	ctx.fill();
 	ctx.stroke();
