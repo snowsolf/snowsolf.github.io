@@ -12,10 +12,7 @@ window.onload = function() {
 	canvas.width = document.body.clientWidth;
 	canvas.height = document.body.clientHeight;
 
-	var w = canvas.width;
-	var h = canvas.height;
-	var minW = Math.floor(w / 100);
-	var minH = Math.floor(h / 100);
+	var minW = Math.floor(canvas.width / 100);
 
 	half = minW / 6 * 4;
 	third = minW / 6 * 3;
@@ -30,22 +27,22 @@ window.onload = function() {
 		var hours = date.getHours();
 		var first = Math.floor(hours / 10);
 		var second = Math.floor(hours % 10);
-		drawAll(ctx, first, minW * 10, minH * 36);
-		drawAll(ctx, second, minW * 23, minH * 36);
-		drawDot(ctx, minW * 35, minH * 45);
+		drawAll(ctx, first, minW * 10, minW * 16);
+		drawAll(ctx, second, minW * 23, minW * 16);
+		drawDot(ctx, minW * 35, minW * 20);
 
 		var minutes = date.getMinutes();
 		first = Math.floor(minutes / 10);
 		second = Math.floor(minutes % 10);
-		drawAll(ctx, first, minW * 40, minH * 36);
-		drawAll(ctx, second, minW * 53, minH * 36);
-		drawDot(ctx, minW * 65, minH * 45);
+		drawAll(ctx, first, minW * 40, minW * 16);
+		drawAll(ctx, second, minW * 53, minW * 16);
+		drawDot(ctx, minW * 65, minW * 20);
 
 		var seconds = date.getSeconds();
 		first = Math.floor(seconds / 10);
 		second = Math.floor(seconds % 10);
-		drawAll(ctx, first, minW * 70, minH * 36);
-		drawAll(ctx, second, minW * 83, minH * 36);
+		drawAll(ctx, first, minW * 70, minW * 16);
+		drawAll(ctx, second, minW * 83, minW * 16);
 	}, 1000);
 };
 
@@ -144,11 +141,11 @@ function drawTop(ctx, x, y) {
 function drawMiddle(ctx, x, y) {
 	ctx.beginPath();
 	ctx.moveTo(x, y);
-	ctx.lineTo(x + half + 2, y + half + 1);
-	ctx.lineTo(x + length - half - 2, y + half + 1);
+	ctx.lineTo(x + half + 2, y + half);
+	ctx.lineTo(x + length - half - 2, y + half);
 	ctx.lineTo(x + length, y);
-	ctx.lineTo(x + length - half - 2, y - half - 1);
-	ctx.lineTo(x + half + 2, y - half - 1);
+	ctx.lineTo(x + length - half - 2, y - half);
+	ctx.lineTo(x + half + 2, y - half);
 	ctx.closePath();
 	ctx.fillStyle = "#000000";
 	ctx.fill();
