@@ -144,11 +144,11 @@ function drawTop(ctx, x, y) {
 function drawMiddle(ctx, x, y) {
 	ctx.beginPath();
 	ctx.moveTo(x, y);
-	ctx.lineTo(x + half + 2, y + half + 2);
-	ctx.lineTo(x + length - half - 2, y + half + 2);
+	ctx.lineTo(x + half + 2, y + half + 1);
+	ctx.lineTo(x + length - half - 2, y + half + 1);
 	ctx.lineTo(x + length, y);
-	ctx.lineTo(x + length - half - 2, y - half - 2);
-	ctx.lineTo(x + half + 2, y - half - 2);
+	ctx.lineTo(x + length - half - 2, y - half - 1);
+	ctx.lineTo(x + half + 2, y - half - 1);
 	ctx.closePath();
 	ctx.fillStyle = "#000000";
 	ctx.fill();
