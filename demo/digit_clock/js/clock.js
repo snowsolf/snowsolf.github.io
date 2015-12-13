@@ -2,6 +2,10 @@
  * Created by snowsolf(snowsolf@hotmail.com) on 2015/12/10.
  */
 
+/**
+ * 默认斜角值及
+ * @type {number}
+ */
 var half = 9;
 var third = 6;
 var length = 100;
