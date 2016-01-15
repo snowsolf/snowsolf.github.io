@@ -5,19 +5,13 @@
 	<title>canvas clock</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="keywords" content="Canvas Clock Canvas钟表"/>
-	<link rel="shortcut icon" href="/images/favicon.ico">
 	<style type="text/css">
 		html, body {
+			height: 100%;
+			width: 100%;
 			margin: 0;
 			padding: 0;
-		}
-
-		#canvas {
-			height: 768px;
-		}
-
-		.ds-thread {
-			padding: 50px;
+			overflow: hidden;
 		}
 	</style>
 	<script type="text/javascript" src="./js/clock.js"></script>
@@ -26,22 +20,5 @@
 	<canvas id="canvas">
 		当前浏览器不支持Canvas，请更换浏览器后再试！
 	</canvas>
-
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="snowsolf_canvas_clock" data-title="canvas clock" data-url="http://www.snowsolf.com/demo/canvas_clock/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-		var duoshuoQuery = {short_name:"snowsolf"};
-		(function() {
-			var ds = document.createElement('script');
-			ds.type = 'text/javascript';ds.async = true;
-			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
-			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0]
-			|| document.getElementsByTagName('body')[0]).appendChild(ds);
-		})();
-	</script>
-	<!-- 多说公共JS代码 end -->
 </body>
 </html>
