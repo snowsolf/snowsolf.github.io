@@ -11,15 +11,28 @@ div#header {
 }
 div#content {
 	top: 30px;
-	text-align: center;
 	vertical-align: middle;
+	padding-right: 50px;
+	padding-left: 50px;
 }
-div#footer {
-	clear: both;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
+
+code {
+	padding: 2px;
+	background-color: #000000;
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+
+code.code-black {
+	padding: 2px;
+	background-color: #000000;
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+
+div.ds-thread {
+	padding-right: 50px;
+	padding-left: 50px;
 }
 
 .h_tab, #h_tab {
