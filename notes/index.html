@@ -91,12 +91,19 @@ ga('send', 'pageview');
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/notes/2016/04/14/JavaScript正则表达式应用---replace()/">JavaScript正则表达式应用---replace()</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#JavaScript正则表达式应用—replace()</p>
-<p>标签（空格分隔）： 正则</p>
-<hr>
-<p><code>replace()</code>方法使用一个替换值<code>（replacement）</code>替换掉一个匹配模式<code>（pattern）</code>在原字符串中某些或所有的匹配项，并返回替换后的字符串。这个替换模式可以是字符串或者<code>RegExp</code>（正则表达式），替换值可以是一个字符串或者一个函数。</p>
+        <p><code>replace()</code>方法使用一个替换值<code>（replacement）</code>替换掉一个匹配模式<code>（pattern）</code>在原字符串中某些或所有的匹配项，并返回替换后的字符串。这个替换模式可以是字符串或者<code>RegExp</code>（正则表达式），替换值可以是一个字符串或者一个函数。</p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.replace(regexp|substr, newSubStr|function[, flags])</span><br></pre></td></tr></table></figure>
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
 <li><strong><em>regexp：</em></strong>一个<code>RegExp</code>对象。该正则所匹配的内容会被第二个参数的返回值替换掉。</li>
@@ -232,7 +239,7 @@ ga('send', 'pageview');
     <article id="post-zTree 双击和单击事件冲突解决" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/notes/2016/04/14/zTree 双击和单击事件冲突解决/" class="article-date">
-  <time datetime="2016-04-14T13:21:29.769Z" itemprop="datePublished">2016-04-14</time>
+  <time datetime="2016-04-14T13:21:01.588Z" itemprop="datePublished">2016-04-14</time>
 </a>
     
   </div>
@@ -241,16 +248,15 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="zTree-双击和单击事件冲突解决"><a href="#zTree-双击和单击事件冲突解决" class="headerlink" title="zTree 双击和单击事件冲突解决"></a>zTree 双击和单击事件冲突解决</h1><p>标签： JavaScript</p>
-<hr>
+        <hr>
+<h2 id="zTree-双击和单击事件冲突解决"><a href="#zTree-双击和单击事件冲突解决" class="headerlink" title="zTree 双击和单击事件冲突解决"></a>zTree 双击和单击事件冲突解决</h2><h2 id="zTree双击和单击事件冲突解决"><a href="#zTree双击和单击事件冲突解决" class="headerlink" title="zTree双击和单击事件冲突解决"></a>zTree双击和单击事件冲突解决</h2><p>如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：</p>
+<p>对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这样就可以正常触发双击事件处理方法。</p>
+<p>具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var intervalTimer = null;</span><br><span class="line"></span><br><span class="line">function zTreeOnClick(event, treeId, treeNode) &#123;</span><br><span class="line">	clearTimeout(intervalTimer); //取消上次延时未执行的方法</span><br><span class="line">	intervalTimer = setTimeout(function() &#123;</span><br><span class="line">		// click 事件的处理</span><br><span class="line">	&#125;, 300);//延时300毫秒执行</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function zTreeOnDblClick(event, treeId, treeNode) &#123;</span><br><span class="line">	clearTimeout(intervalTimer); //取消上次延时未执行的方法</span><br><span class="line">		// dblclick 事件的处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>##参考</p>
 <ul>
 <li><code>github</code>地址：<a href="https://github.com/zTree/zTree_v3" target="_blank" rel="external">https://github.com/zTree/zTree_v3</a></li>
 <li>官网地址：<a href="http://www.ztree.me/v3/main.php#_zTreeInfo" target="_blank" rel="external">http://www.ztree.me/v3/main.php#_zTreeInfo</a></li>
 </ul>
-<h2 id="zTree双击和单击事件冲突解决"><a href="#zTree双击和单击事件冲突解决" class="headerlink" title="zTree双击和单击事件冲突解决"></a>zTree双击和单击事件冲突解决</h2><p>如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：</p>
-<p>对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这样就可以正常触发双击事件处理方法。</p>
-<p>具体代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var intervalTimer = null;</span><br><span class="line"></span><br><span class="line">function zTreeOnClick(event, treeId, treeNode) &#123;</span><br><span class="line">	clearTimeout(intervalTimer); //取消上次延时未执行的方法</span><br><span class="line">	intervalTimer = setTimeout(function() &#123;</span><br><span class="line">		// click 事件的处理</span><br><span class="line">	&#125;, 300);//延时300毫秒执行</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function zTreeOnDblClick(event, treeId, treeNode) &#123;</span><br><span class="line">	clearTimeout(intervalTimer); //取消上次延时未执行的方法</span><br><span class="line">		// dblclick 事件的处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -388,7 +394,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/notes/2016/04/14/JavaScript正则表达式应用---replace()/">(no title)</a>
+            <a href="/notes/2016/04/14/JavaScript正则表达式应用---replace()/">JavaScript正则表达式应用---replace()</a>
           </li>
         
           <li>
