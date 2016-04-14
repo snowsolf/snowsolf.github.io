@@ -5,7 +5,7 @@
   <link href="/notes/atom.xml" rel="self"/>
   
   <link href="http://www.snowsolf.com/"/>
-  <updated>2016-04-14T13:50:46.964Z</updated>
+  <updated>2016-04-14T15:35:04.121Z</updated>
   <id>http://www.snowsolf.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://www.snowsolf.com/2016/04/14/JavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8---replace()/"/>
     <id>http://www.snowsolf.com/2016/04/14/JavaScript正则表达式应用---replace()/</id>
     <published>2016-04-14T13:23:58.469Z</published>
-    <updated>2016-04-14T13:50:46.964Z</updated>
+    <updated>2016-04-14T15:35:04.121Z</updated>
     
     <content type="html">&lt;p&gt;&lt;code&gt;replace()&lt;/code&gt;方法使用一个替换值&lt;code&gt;（replacement）&lt;/code&gt;替换掉一个匹配模式&lt;code&gt;（pattern）&lt;/code&gt;在原字符串中某些或所有的匹配项，并返回替换后的字符串。这个替换模式可以是字符串或者&lt;code&gt;RegExp&lt;/code&gt;（正则表达式），替换值可以是一个字符串或者一个函数。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;str.replace(regexp|substr, newSubStr|function[, flags])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;参数&quot;&gt;&lt;a href=&quot;#参数&quot; class=&quot;headerlink&quot; title=&quot;参数&quot;&gt;&lt;/a&gt;参数&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;regexp：&lt;/em&gt;&lt;/strong&gt;一个&lt;code&gt;RegExp&lt;/code&gt;对象。该正则所匹配的内容会被第二个参数的返回值替换掉。&lt;/li&gt;
@@ -143,7 +144,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;code&gt;replace()&lt;/code&gt;方法使用一个替换值&lt;code&gt;（replacement）&lt;/code&gt;替换掉一个匹配模式&lt;code&gt;（pattern）&lt;/code&gt;在原字符串中某些或所有的匹配项，并返回替换后的字符串。这个替换模式可以是字符串或者&lt;code&gt;Re
+      &lt;p&gt;&lt;code&gt;replace()&lt;/code&gt;方法使用一个替换值&lt;code&gt;（replacement）&lt;/code&gt;替换掉一个匹配模式&lt;code&gt;（pattern）&lt;/code&gt;在原字符串中某些或所有的匹配项，并返回替换后的字符串。这个替换模式可以是字符串或者&lt;code&gt;RegExp&lt;/code&gt;（正则表达式），替换值可以是一个字符串或者一个函数。&lt;/p&gt;
     
     </summary>
     
