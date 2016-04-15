@@ -152,14 +152,13 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：</p>
+        <p>如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：</p>
 <p>对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这样就可以正常触发双击事件处理方法。</p>
-<p>具体代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intervalTimer = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zTreeOnClick</span>(<span class="params">event, treeId, treeNode</span>) </span>&#123;</span><br><span class="line">	clearTimeout(intervalTimer); <span class="comment">//取消上次延时未执行的方法</span></span><br><span class="line">	intervalTimer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">// click 事件的处理</span></span><br><span class="line">	&#125;, <span class="number">300</span>);<span class="comment">//延时300毫秒执行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zTreeOnDblClick</span>(<span class="params">event, treeId, treeNode</span>) </span>&#123;</span><br><span class="line">	clearTimeout(intervalTimer); <span class="comment">//取消上次延时未执行的方法</span></span><br><span class="line">		<span class="comment">// dblclick 事件的处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><code>github</code>地址：<a href="https://github.com/zTree/zTree_v3" target="_blank" rel="external">https://github.com/zTree/zTree_v3</a></li>
-<li>官网地址：<a href="http://www.ztree.me/v3/main.php#_zTreeInfo" target="_blank" rel="external">http://www.ztree.me/v3/main.php#_zTreeInfo</a></li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/notes/2016/04/14/zTree 双击和单击事件冲突解决/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -241,16 +240,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        
+          <p class="article-more-link">
+            <a href="/notes/2016/04/14/hello-world/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
