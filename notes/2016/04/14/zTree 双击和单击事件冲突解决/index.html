@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>zTree 双击和单击事件冲突解决 | snowsolf&#39;s blog!</title>
+  <title>zTree 双击和单击事件冲突解决 | snowsolf</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="解决如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：
 对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zTree 双击和单击事件冲突解决">
 <meta property="og:url" content="http://www.snowsolf.com/2016/04/14/zTree 双击和单击事件冲突解决/index.html">
-<meta property="og:site_name" content="snowsolf's blog!">
+<meta property="og:site_name" content="snowsolf">
 <meta property="og:description" content="解决如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：
 对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这">
 <meta property="og:updated_time" content="2016-04-14T13:54:00.399Z">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="解决如果zTree回调方法中既有点击事件处理方法，又有双击处理方法，因为双击是两次单击，所以双击会触发两次单击事件，即双击会触发两次单击事件和一次双击事件，而且先触发两次单击，再触发双击事件。如果使两个事件不冲突，处理如下：
 对单击事件处理方法进行一定的延时，延时时间大于双击间隔，这样双击时第一次的单击因为还在延时，第二次单击已经到来，然后取消第一次的单击，双击也已触发，并取消第二次的单击事件，这">
   
-    <link rel="alternate" href="/notes/atom.xml" title="snowsolf&#39;s blog!" type="application/atom+xml">
+    <link rel="alternate" href="/notes/atom.xml" title="snowsolf" type="application/atom+xml">
   
   
     <link rel="icon" href="/images/favicon.ico">
@@ -53,7 +53,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/notes/" id="logo">snowsolf&#39;s blog!</a>
+        <a href="/notes/" id="logo">snowsolf</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -68,6 +68,8 @@ ga('send', 'pageview');
           <a class="main-nav-link" href="/notes/">首页</a>
         
           <a class="main-nav-link" href="/notes/archives">归档</a>
+        
+          <a class="main-nav-link" href="http://www.snowsolf.com">站点首页</a>
         
           <a class="main-nav-link" href="http://www.cnblogs.com/snowsolf">博客园</a>
         
@@ -237,6 +239,8 @@ ga('send', 'pageview');
     <a href="/notes/" class="mobile-nav-link">首页</a>
   
     <a href="/notes/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="http://www.snowsolf.com" class="mobile-nav-link">站点首页</a>
   
     <a href="http://www.cnblogs.com/snowsolf" class="mobile-nav-link">博客园</a>
   
